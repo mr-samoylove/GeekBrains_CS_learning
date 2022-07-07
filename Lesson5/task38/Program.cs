@@ -7,8 +7,7 @@ double[] ArrayInit(uint length, int minRange = 0, int maxRange = 100)
     double[] array = new double[length];
 
     for (int i = 0; i < length; i++)
-        // array[i] = rnd.Next(minRange, maxRange) + rnd.NextDouble();  // например если от 0 до 2 то [0.00 1.99]
-        array[i] = (rnd.NextDouble() * (maxRange - minRange) + minRange);
+        array[i] = (rnd.NextDouble() * (maxRange - minRange) + minRange); // например если от 0 до 2 то [0.00 1.99]
 
     return array;
 }
