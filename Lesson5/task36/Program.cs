@@ -37,7 +37,7 @@ Console.WriteLine("Эта программа задаёт одномерный �
 Console.WriteLine("На сколько элементов задать массив?");
 uint n = Convert.ToUInt32(Console.ReadLine());
 
-int[] array = ArrayInit(n);
+int[] array = ArrayInit(n);   // можно задавать диапазон вторым и третьим параметрами
 ArrayPrinter(array);
 int result = SumOfElsOnUnevenIndexes(array);
 Console.WriteLine($"Сумма элементов на нечетных позициях = {result}");

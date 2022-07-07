@@ -7,7 +7,7 @@ double[] ArrayInit(uint length, int minRange = Int32.MinValue, int maxRange = In
     double[] array = new double[length];
 
     for (int i = 0; i < length; i++)
-        array[i] = rnd.Next(minRange, maxRange - 1) + rnd.NextDouble();
+        array[i] = rnd.Next(minRange, maxRange) + rnd.NextDouble();  // например если от 0 до 2 то [0.00 1.99]
 
     return array;
 }
@@ -26,9 +26,13 @@ Console.WriteLine("Эта программа задаёт массив веще�
 Console.WriteLine("На сколько элементов задать массив?");
 uint n = Convert.ToUInt32(Console.ReadLine());
 
-double[] array = ArrayInit(n, 0, 10); // диапазон задается вторым и третьим параметрами (необязательные параметры)
+int from = 0; // можно дать пользователю ввести, например
+int to = 10;
+double[] array = ArrayInit(n, from, to); // диапазон задается вторым и третьим параметрами (необязательные параметры)
 
 int round = 3;   // до скольки знаков после запятой округлить
 ArrayPrinter(array, round);  // округление - второй необязательный параметр. по дефолту 6 знаков
+
 double result = Math.Round(array.Max() - array.Min(), round);
+
 Console.WriteLine($"max - min = {result}");
