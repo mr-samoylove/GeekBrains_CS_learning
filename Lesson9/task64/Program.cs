@@ -1,18 +1,19 @@
-﻿// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
-// M = 1; N = 5. -> ""1, 2, 3, 4, 5""
-// M = 4; N = 8. -> ""4, 6, 7, 8""
+﻿// Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
-void PrintSegment(int m, int n)
+void PrintFromNto1UsingRecursion(int n)
 {
-    Console.Write("Натуральные числа в диапазоне от M до N включительно: ");
-    while (m <= n) Console.Write(m++ + " ");
+    if (n >= 1)
+    {
+        Console.Write(n + " ");
+        PrintFromNto1UsingRecursion(--n);
+    }
 }
 
-Console.WriteLine("Эта программа задаёт значения M и N и выводит все натуральные числа в промежутке от M до N включительно.");
-Console.Write("Введите M: ");
-int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Эта программа задаёт значения N и выводит все натуральные числа в промежутке от N до 1 включительно.");
 Console.Write("Введите N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-if (m > n) Console.WriteLine("Число M (от) должно быть меньше или равно N (до)");
-else PrintSegment(m, n);
+if (n < 1) Console.WriteLine("Число N должно быть положительным");
+else PrintFromNto1UsingRecursion(n);
